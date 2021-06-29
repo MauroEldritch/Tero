@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tero - Búsqueda de Filtraciones</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">© Birmingham Cyber Arms LTD - 2021 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <section>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-10">
+                        <h1 class="mt-5"><img src="/assets/favicon.ico" width="64" height="64"> Tero - Motor de Búsqueda de Filtraciones</h1>
+                        <p><BR>🔍 Tero es un Motor de Búsqueda de Filtraciones.<BR><BR>💽 Cualquier <b>Administrador</b> de un sitio comprometido puede utilizarlo para analizar usuarios filtrados y disponibilizar en el corto plazo un sistema de consulta para los mismos.<BR><BR>👥 Cualquier <b>Usuario</b> puede consultar y verificar si fue comprometido en dicho sitio con sólo ingresar su dirección de correo.<BR><BR></p><hr>
+                    </div>
+                </div>
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-10">
+                      <h3>Buscar</h3><BR>
+                        <div class="input-group">
+
+                      <form>
+<div class="row">
+  <div class="col">
+    <input type="email" id="leak" name="leak" class="form-control" size="80" placeholder="Ingrese la dirección de correo a buscar...">
+  </div>
+  <div class="col">
+  <button type="submit" class="btn btn-secondary">Buscar</button>
+  </div>
+</div>
+                      </form><BR><BR>
+                       </div>
+                       <% if $last_found != "" %>
+<b>⚠️ Usuario filtrado: </b>&nbsp;&nbsp;<i><%= $last_found.chomp %></i><BR><BR>
+✅ Cambia tu password de forma urgente.<BR>
+✅ No uses la misma contraseña para varios sitios.<BR>
+✅ Utiliza un gestor de claves como 1Password.<BR>
+✅ Implementa un segundo factor de autenticación como Google Authenticator.<BR>
+                        <% else %>
+<b>Usuario no encontrado.</b>
+                      <% end %>
+
+                       <BR><hr>
+                  </div>
+                <div class="row gx-4 gx-lg-5">
+                  <div class="col-lg-10">
+                    <h3>Información sobre la filtración</h3>
+                    <p><BR>
+                    🔓 <b>Sitio filtrado: </b><%= $sitio_filtrado %>
+                    <BR><BR>📅 <b>Fecha del incidente: </b><%= $fecha_incidente %>
+                    <BR><BR>👤 <b>Usuarios afectados: </b><%= $usuarios_afectados %>
+
+                    <BR><BR>🔑 <b>Claves más usadas: </b><BR><ul>
+                    <% $claves_mas_usadas.sort_by(&:last).reverse.first(10).each do |clave| %>
+                      <li><%= clave[0] %> (<%= clave[1] %> veces)</li>
+                    <% end %>
+                    </ul>
+                    📬 <b>Dominios afectados: </b><BR><ul>
+                    <% $dominios_afectados.sort_by(&:last).reverse.each do |dominio| %>
+                      <li><%= dominio[0] %> (<%= dominio[1] %> veces)</li>
+                    <% end %>
+                    </ul>
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
