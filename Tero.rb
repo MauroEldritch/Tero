@@ -66,8 +66,8 @@ configure do
       def server_settings
         {
           :backend          => MyThinBackend,
-          :private_key_file => File.dirname(__FILE__) + "/ssl/bca.pem",
-          :cert_chain_file  => File.dirname(__FILE__) + "/ssl/bca.crt",
+          :private_key_file => File.dirname(__FILE__) + "/ssl/tero.pem",
+          :cert_chain_file  => File.dirname(__FILE__) + "/ssl/tero.crt",
           :verify_peer      => false
         }
       end
