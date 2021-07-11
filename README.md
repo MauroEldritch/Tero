@@ -35,3 +35,17 @@ Colocar los certificados SSL necesarios en la carpeta `ssl` bajo los nombres `te
 Siguiendo nuestra política de Full-Disclosure, Tero por defecto imprime las 10 claves más usadas y todos los dominios utilizados. Tener en cuenta este detalle antes de publicar.
 
 Tero puede ser utilizado libremente y modificado, siempre y cuando sea con fines no comerciales y se respeten los créditos en el footer.
+
+## Capturas de pantalla
+
+### Desktop
+
+![Desktop](www/static/assets/Tero_4.png)
+
+### Mobile
+
+![Pantalla Principal](www/static/assets/Tero_1.jpg)
+
+![Información General](www/static/assets/Tero_2.jpg)
+
+![Dominios Afectados](www/static/assets/Tero_3.jpg)
